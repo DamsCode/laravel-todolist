@@ -18,3 +18,8 @@ Route::get('/hello', function () {
     return view('hello');
 });
 
+Route::get('/users', function () {
+    $users = App\Users::all();
+    return view('users', ['users' => $users]);
+});
+
