@@ -2,9 +2,10 @@
 
 namespace App;
 
+use App\Http\Middleware\Authenticate;
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model
+class Users extends Authenticate
 {
     protected $fillable = ['name', 'password','email'];
 
