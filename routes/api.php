@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');
 
-Route::group(['middleware' => 'auth:api'], function() {
+
     Route::get('users', function() {
         // If the Content-Type and Accept headers are set to 'application/json',
         // this will return a JSON structure. This will be cleaned up later.
@@ -29,7 +29,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     });
 
     Route::get('users/{id}', function($id) {
-        return Users::find($id);
+     //   $arr = array();
+       // $arr['user'] = Users::find($id);
+     //   $arr['lists'] = Users::find($id)->lists;
+        return Users::find($id)->load('lists');
     });
 
     Route::post('users', function(Request $request) {
@@ -49,4 +52,4 @@ Route::group(['middleware' => 'auth:api'], function() {
         return 204;
     });
     Route::post('logout', 'Auth\LoginController@logout');
-});
+

@@ -5,7 +5,7 @@ namespace App;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Authenticate
+class Users extends Model
 {
     protected $fillable = ['name', 'password','email'];
 
@@ -15,6 +15,14 @@ class Users extends Authenticate
         $this->save();
 
         return $this->api_token;
+    }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function lists()
+    {
+        return $this->hasMany('App\Lists');
     }
 
 }
