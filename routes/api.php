@@ -74,13 +74,11 @@ Route::post('lists', function(Request $request) {
 Route::put('lists/{id}', function(Request $request, $id) {
     $Lists = Lists::findOrFail($id);
     $Lists->update($request->all());
-
     return $Lists;
 });
 
 Route::delete('lists/{id}', function($id) {
     Lists::find($id)->delete();
-
     return 204;
 });
 

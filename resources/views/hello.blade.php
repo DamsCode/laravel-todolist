@@ -16,6 +16,9 @@
 <div id="app">
     <example-component></example-component>
 </div>
+<div id="app2">
+    <todo-item> </todo-item>
+</div>
 <script src="/js/app.js"></script>
 </body>
 </html>
